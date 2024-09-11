@@ -22,27 +22,9 @@ onMounted(() => {
 
 const AgregarProductoCarrito = (data) => {
   const {guitarra, cantidad} =  data
-  
   guitarra.cantidad = cantidad
-  verificarExistenciaEnCarrito(guitarra)
-
-  console.log(carrito.value)
-}
-
-
-const verificarExistenciaEnCarrito = (guitarra) => {
-  const existeGuitarra = carrito.value.find( producto => producto.id === guitarra.id)
-  if(existeGuitarra) {
-    if(existeGuitarra.cantidad === 0 ){
-      const nuevoCarrito = carrito.value.filter(seleccion => seleccion.id !== guitarra.id)
-      carrito.value = nuevoCarrito
-    }
-    existeGuitarra.cantidad = guitarra.cantidad
-    return;
-  }
   carrito.value.push(guitarra)
-
-
+  
 }
 </script>
 
